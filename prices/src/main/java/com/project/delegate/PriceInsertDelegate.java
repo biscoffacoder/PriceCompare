@@ -23,7 +23,7 @@ public class PriceInsertDelegate {
 	
 	public void insertProduct()
 	{
-		price = new PriceDirectory("Adidas","AD112",3200,"INR");
+		price = new PriceDirectory("Reebok","RB001",1500,"INR");
 		priceService.savePrice(price);
 		
 		
