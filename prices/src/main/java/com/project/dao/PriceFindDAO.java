@@ -1,18 +1,16 @@
-package com.project.service;
+package com.project.dao;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-import com.project.dao.PriceFindDAO;
 import com.project.entity.PriceDirectory;
 import com.project.repository.PriceDirectoryRepo;
 
-@Service
-public class PriceService {
-
-	/*@Autowired
+@Component
+public class PriceFindDAO {
+	@Autowired
 	PriceDirectoryRepo priceRepo;
 	
 	public List<PriceDirectory> getAllPrices()
@@ -24,18 +22,6 @@ public class PriceService {
 	public PriceDirectory getProductById(String productId) {
 		// TODO Auto-generated method stub
 		return priceRepo.findByProductId(productId);
-	}*/
-	
-	@Autowired
-	PriceFindDAO priceFindObj;
-	
-	public List<PriceDirectory> getAllPrices()
-	{
-		return priceFindObj.getAllPrices();
 	}
-	
-	public PriceDirectory getProductById(String productId) 
-	{
-		return priceFindObj.getProductById(productId);
-	}
+
 }

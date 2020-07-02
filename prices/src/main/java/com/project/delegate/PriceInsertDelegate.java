@@ -23,9 +23,15 @@ public class PriceInsertDelegate {
 	
 	public void insertProduct()
 	{
-		price = new PriceDirectory("Reebok","RB001",1500,"INR");
+		//price = new PriceDirectory(productName, productId, price, currencyCode, brandName, url, discountPercentage, websiteName);
+		price = new PriceDirectory("Shoe","SH001",4500,"INR","Adidas","https://test1SH001",20,"Myntra");
 		priceService.savePrice(price);
 		
+		
+	}
+
+	public void insertProductObj(PriceDirectory priceObj) {
+		priceService.savePrice(priceObj);
 		
 	}
 }
