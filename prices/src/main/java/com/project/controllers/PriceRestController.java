@@ -1,6 +1,7 @@
 package com.project.controllers;
 
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import com.project.service.LoggerService;
 //push
 @RestController
 @Component
-public class PriceCheckController {
+public class PriceRestController {
 
 	@Autowired
 	LoggerService loggerObj;
@@ -61,27 +62,23 @@ public class PriceCheckController {
 
 		return priceDelegate.getProductById(id);
 	}
+
 	
-	@GetMapping("/home")
-	public String getHomepage()
-	{
-		return "welcome";
-	}
-	
+
 	@PostMapping("/prices")
 	public String insertPriceObj(@RequestBody PriceDirectory priceObj) 
 	{
 		Logger logger = loggerObj.getLogger(this.getClass().getName());
 		logger.info(logger.getName()+" INSIDE "+ " insertPriceObj()");
-		
+
 		String objProductID = priceObj.getProductId();
-		System.err.println("Obj ID :" + objProductID);
+		//System.err.println("Obj ID :" + objProductID);
 		priceInsertDelegate.insertProductObj(priceObj);
-		
+
 		logger.info(logger.getName()+" EXIT "+ " insertPriceObj()");
 		return "New Value entered with productID : "+getProductById(objProductID).getProductId();
-		
-		
+
+
 
 	}
 
